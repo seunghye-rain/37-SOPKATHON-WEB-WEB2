@@ -1,16 +1,14 @@
-import type { RecipeVariants } from '@vanilla-extract/recipes';
 import type { ReactNode } from 'react';
 
 import { labelLangStyle } from './label-lang.css';
 
-type ColorBoxVariants = RecipeVariants<typeof labelLangStyle>;
-
-type ColorBoxProps = ColorBoxVariants & {
+interface LabelLangProps {
   children: ReactNode;
-};
+  color?: 'default' | 'primary';
+}
 
-const ColorBox = ({ children, color }: ColorBoxProps) => {
+const LabelLang = ({ children, color }: LabelLangProps) => {
   return <div className={labelLangStyle({ color })}>{children}</div>;
 };
 
-export default ColorBox;
+export default LabelLang;

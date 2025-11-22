@@ -4,11 +4,12 @@ import { themeVars } from '@/shared/styles/theme.css';
 
 export const labelLangStyle = recipe({
   base: {
-    display: 'flex',
+    display: 'inline-flex',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: '0.2rem 0.8rem',
+    padding: '0.2rem 0.7rem',
     borderRadius: '2px',
+    color: themeVars.color.white,
     ...themeVars.fontStyles.body3_r_14,
   },
 
