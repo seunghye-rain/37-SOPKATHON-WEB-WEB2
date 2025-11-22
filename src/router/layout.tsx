@@ -13,8 +13,8 @@ const Layout = () => {
 
   return (
     <div className={rootStyle}>
-      <AppBar variant={isOnboarding ? 'onboarding' : 'default'} />
       <Suspense fallback={<Loading />}>
+        <AppBar variant={isOnboarding ? 'onboarding' : 'default'} />
         <main>
           <Outlet />
         </main>

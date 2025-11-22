@@ -7,7 +7,7 @@ export const containerStyle = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  backgroundColor: '#ffffffff',
+  backgroundColor: '#ffffff',
 });
 
 export const logoContainerStyle = style({
@@ -31,7 +31,6 @@ export const iconButtonStyle = style({
   justifyContent: 'center',
   background: 'none',
   border: 'none',
-  cursor: 'pointer',
 });
 
 export const iconStyle = style({
@@ -50,7 +49,6 @@ export const closeButtonStyle = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  cursor: 'pointer',
   width: '4.4rem',
   height: '4.4rem',
 });
