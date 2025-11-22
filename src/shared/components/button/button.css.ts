@@ -9,7 +9,6 @@ export const buttonStyle = recipe({
     alignItems: 'center',
     width: themeVars.width.full,
     borderRadius: '0.4rem',
-    cursor: 'pointer',
     transition: 'all 0.2s ease',
     ...themeVars.fontStyles.body2_r_16,
     ':disabled': {
