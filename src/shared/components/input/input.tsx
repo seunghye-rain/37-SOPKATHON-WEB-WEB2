@@ -2,7 +2,7 @@ import type { ChangeEvent } from 'react';
 
 interface InputProps {
   value?: string;
-  onChange: (value: string) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   type?: 'text' | 'password' | 'email' | 'number';
   placeholder?: string;
   className?: string;
@@ -16,16 +16,12 @@ const Input = ({
   className,
   ...rest
 }: InputProps) => {
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    onChange(e.target.value);
-  };
-
   return (
     <input
       className={className}
       type={type}
       value={value}
-      onChange={handleChange}
+      onChange={onChange}
       placeholder={placeholder}
       {...rest}
     />
