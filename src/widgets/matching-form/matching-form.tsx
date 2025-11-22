@@ -164,7 +164,7 @@ const MatchingForm = ({ onSubmit, initialData }: MatchingFormProps) => {
         />
       </section>
 
-      <Button size='large' disabled={!isFormValid} type='submit'>
+      <Button type='submit' size='large' disabled={!isFormValid}>
         매칭하기
       </Button>
     </form>
