@@ -7,7 +7,6 @@ export const containerStyle = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  padding: '0 1.6rem',
   backgroundColor: '#ffffffff',
 });
 
