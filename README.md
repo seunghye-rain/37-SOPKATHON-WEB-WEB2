@@ -145,6 +145,20 @@ src/
 
 <br />
 
+## 💝 우리 팀의 그라운드 룰
+> 몰라도 부끄러워 하지 않기
+
+> 질문 환영
+
+> 클린코드 !!
+
+> 해커톤이라고 조급해하지 않기
+
+> MVP를 기반으로 만들기
+
+> 소통 !!!
+
+> 열정 !!
 ---
 
 ## 📖 아티클 모음
@@ -165,10 +179,8 @@ src/
 <table>
   <tr>
     <th>Before</th>
-    <th>After</th>
   </tr>
   <tr>
-    <td><img width="400" alt="Before" src="" /></td>
-    <td><img width="400" alt="After" src="" /></td>
+    <td><img width="2580" height="1720" alt="image" src="https://github.com/user-attachments/assets/0a57b71d-7234-429e-b9a7-ad3746d576b6" /></td>
   </tr>
 </table>
