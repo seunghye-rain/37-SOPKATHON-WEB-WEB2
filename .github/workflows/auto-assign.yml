@@ -34,9 +34,30 @@ jobs:
 
             console.log(`Assigning ${creator} to issue/PR #${issueNumber}`);
 
-            github.rest.issues.addAssignees({
+            await github.rest.issues.addAssignees({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: issueNumber,
               assignees: [creator]
             });
+
+            if (isPullRequest) {
+              const allMembers = [
+                'jin-evergreen',
+                'seunghye-rain',
+                'yooncandooit',
+                'Sohyunnnn'
+              ];
+              
+              const reviewers = allMembers.filter(member => member !== creator);
+              
+              if (reviewers.length > 0) {
+                await github.rest.pulls.requestReviewers({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  pull_number: issueNumber,
+                  reviewers: reviewers
+                });
+                console.log(`Requested review from: ${reviewers.join(', ')}`);
+              }
+            }
