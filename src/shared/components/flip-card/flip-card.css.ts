@@ -1,6 +1,5 @@
 import { style } from '@vanilla-extract/css';
 import { width } from '@/shared/styles/token/width.css';
-import { themeVars } from '@/shared/styles/theme.css';
 
 export const flipCardContainer = style({
   width: width.full,

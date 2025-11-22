@@ -1,5 +1,4 @@
 import FlipCard from '@/shared/components/flip-card/flip-card';
-import Symbol from '@/shared/assets/images/img-symbol.png';
 import MatchingProfile from '@/shared/assets/images/img-matching-profile.png';
 import * as s from './matching-complete.css';
 import { useState } from 'react';
