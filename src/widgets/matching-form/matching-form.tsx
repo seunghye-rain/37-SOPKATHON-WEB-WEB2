@@ -2,38 +2,17 @@ import { useCallback, useState } from 'react';
 
 import Button from '@/shared/components/button/button';
 
+import {
+  INITIAL_FORM_DATA,
+  LANGUAGE_OPTIONS,
+  TIME_SLOT_OPTIONS,
+} from './constant/option';
 import * as styles from './matching-form.css';
-
-interface MatchingFormData {
-  speakLanguages: string[];
-  learnLanguages: string[];
-  region: string;
-  timeSlot: string;
-  job: string;
-}
+import type { MatchingFormData } from './types';
 
 interface MatchingFormProps {
   onSubmit: (data: MatchingFormData) => void;
 }
-
-const LANGUAGE_OPTIONS = ['네덜란드어', '프랑스어', '독일어', '영어'];
-
-const TIME_SLOT_OPTIONS = [
-  '11:30 ~ 12:00',
-  '12:00 ~ 12:30',
-  '12:30 ~ 13:00',
-  '13:00 ~ 13:30',
-  '13:30 ~ 14:00',
-  '14:00 ~ 14:30',
-];
-
-const INITIAL_FORM_DATA: MatchingFormData = {
-  speakLanguages: [],
-  learnLanguages: [],
-  region: '',
-  timeSlot: '',
-  job: '',
-};
 
 const MatchingForm = ({ onSubmit }: MatchingFormProps) => {
   const [formData, setFormData] = useState<MatchingFormData>(INITIAL_FORM_DATA);
@@ -76,7 +55,7 @@ const MatchingForm = ({ onSubmit }: MatchingFormProps) => {
     formData.speakLanguages.length > 0 &&
     formData.learnLanguages.length > 0 &&
     formData.region.trim() !== '' &&
-    formData.timeSlot !== '';
+    formData.timeSlot.trim() !== '';
 
   const handleSubmit = useCallback(() => {
     if (isFormValid) {
@@ -87,7 +66,7 @@ const MatchingForm = ({ onSubmit }: MatchingFormProps) => {
   return (
     <div className={styles.formContainerStyle}>
       <section className={styles.sectionStyle}>
-        <h2 className={styles.sectionTitleStyle}>어떤 언어를 사용하시나요?*</h2>
+        <h2 className={styles.sectionTitleStyle}>어떤 언어를 사용하시나요?</h2>
         <div className={styles.optionGridStyle}>
           {LANGUAGE_OPTIONS.map((language) => (
             <Button
@@ -104,13 +83,12 @@ const MatchingForm = ({ onSubmit }: MatchingFormProps) => {
 
       <section className={styles.sectionStyle}>
         <h2 className={styles.sectionTitleStyle}>
-          어떤 언어를 배우고 싶으신가요?*
+          어떤 언어를 배우고 싶으신가요?
         </h2>
         <div className={styles.optionGridStyle}>
           {LANGUAGE_OPTIONS.map((language) => (
             <Button
               key={`learn-${language}`}
-              className=''
               size='medium'
               selected={formData.learnLanguages.includes(language)}
               onClick={() => handleLanguageToggle('learnLanguages', language)}
@@ -123,19 +101,19 @@ const MatchingForm = ({ onSubmit }: MatchingFormProps) => {
 
       <section className={styles.sectionStyle}>
         <h2 className={styles.sectionTitleStyle}>
-          어디 지역에서 만나고 싶으신가요?*
+          어디 지역에서 만나고 싶으신가요?
         </h2>
         <input
           type='text'
           className={styles.textInputStyle}
-          placeholder='지역을 입력해주세요.'
+          placeholder='지역명을 입력해주세요'
           value={formData.region}
           onChange={(e) => handleInputChange('region', e.target.value)}
         />
       </section>
 
       <section className={styles.sectionStyle}>
-        <h2 className={styles.sectionTitleStyle}>언제 만나고 싶으신가요?*</h2>
+        <h2 className={styles.sectionTitleStyle}>언제 만나고 싶으신가요?</h2>
         <div className={styles.optionGridStyle}>
           {TIME_SLOT_OPTIONS.map((slot) => (
             <Button
@@ -151,11 +129,13 @@ const MatchingForm = ({ onSubmit }: MatchingFormProps) => {
       </section>
 
       <section className={styles.sectionStyle}>
-        <h2 className={styles.sectionTitleStyle}>직업이 있으신가요?</h2>
+        <h2 className={styles.sectionTitleStyle}>
+          어떤 직업을 갖고 계신가요? (선택)
+        </h2>
         <input
           type='text'
           className={styles.textInputStyle}
-          placeholder='직업을 입력해 주세요.'
+          placeholder='직업을 입력해주세요'
           value={formData.job}
           onChange={(e) => handleInputChange('job', e.target.value)}
         />

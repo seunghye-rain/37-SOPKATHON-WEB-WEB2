@@ -29,14 +29,17 @@ export const textInputStyle = style({
   width: themeVars.width.full,
   padding: '1.6rem',
   ...themeVars.fontStyles.body2_r_16,
+  color: themeVars.color.black,
   border: `1px solid ${themeVars.color.gray400}`,
   borderRadius: '0.4rem',
   backgroundColor: themeVars.color.white,
   outline: 'none',
-  '::placeholder': {
-    color: themeVars.color.gray500,
-  },
-  ':focus': {
-    borderColor: themeVars.color.primary700,
+  selectors: {
+    '&::placeholder': {
+      color: themeVars.color.gray500,
+    },
+    '&:focus': {
+      borderColor: themeVars.color.primary700,
+    },
   },
 });
