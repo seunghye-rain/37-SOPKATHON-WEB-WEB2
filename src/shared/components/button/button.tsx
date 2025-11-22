@@ -1,7 +1,7 @@
 import type { RecipeVariants } from '@vanilla-extract/recipes';
 import type { ReactNode } from 'react';
 
-import { buttonStyle } from './Button.css';
+import { buttonStyle } from './button.css';
 
 type ButtonStyleProps = RecipeVariants<typeof buttonStyle>;
 
@@ -10,6 +10,8 @@ type ButtonProps = ButtonStyleProps & {
   disabled?: boolean;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
+  size?: string;
+  selected?: boolean;
 };
 
 const Button = ({
@@ -17,14 +19,15 @@ const Button = ({
   disabled,
   onClick,
   type = 'button',
-  color,
+  size,
+  selected,
 }: ButtonProps) => {
   return (
     <button
       type={type}
       disabled={disabled}
       onClick={onClick}
-      className={buttonStyle({ color })}
+      className={buttonStyle({ size, selected })}
     >
       {children}
     </button>
