@@ -1,8 +1,10 @@
+import ThemeProvider from '@/shared/styles/theme-provider';
+
 function App() {
   return (
-    <>
-      <p>App</p>
-    </>
+    <ThemeProvider>
+      <p>App.tsx</p>
+    </ThemeProvider>
   );
 }
 
