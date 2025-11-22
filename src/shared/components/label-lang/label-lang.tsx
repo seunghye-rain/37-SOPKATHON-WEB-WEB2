@@ -8,7 +8,7 @@ interface LabelLangProps {
 }
 
 const LabelLang = ({ children, color }: LabelLangProps) => {
-  return <div className={labelLangStyle({ color })}>{children}</div>;
+  return <span className={labelLangStyle({ color })}>{children}</span>;
 };
 
 export default LabelLang;
