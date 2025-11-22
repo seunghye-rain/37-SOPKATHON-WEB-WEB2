@@ -21,7 +21,7 @@ export const container = style({
   display: 'flex',
   flexDirection: 'column',
   padding: '1.2rem',
-  height: '14.8rem',
+  height: '20rem',
   width: '32rem',
   borderRadius: '8px',
   background: themeVars.color.white,
