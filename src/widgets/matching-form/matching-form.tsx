@@ -6,7 +6,7 @@ import {
   INITIAL_FORM_DATA,
   LANGUAGE_OPTIONS,
   TIME_SLOT_OPTIONS,
-} from './constant/option';
+} from './constants/option';
 import * as styles from './matching-form.css';
 import type { MatchingFormData } from './types';
 
@@ -58,13 +58,17 @@ const MatchingForm = ({ onSubmit }: MatchingFormProps) => {
     formData.timeSlot.trim() !== '';
 
   const handleSubmit = useCallback(() => {
-    if (isFormValid) {
-      onSubmit(formData);
-    }
-  }, [formData, isFormValid, onSubmit]);
+    onSubmit(formData);
+  }, [formData, onSubmit]);
 
   return (
-    <div className={styles.formContainerStyle}>
+    <form
+      className={styles.formContainerStyle}
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSubmit();
+      }}
+    >
       <section className={styles.sectionStyle}>
         <h2 className={styles.sectionTitleStyle}>어떤 언어를 사용하시나요?</h2>
         <div className={styles.optionGridStyle}>
@@ -141,10 +145,10 @@ const MatchingForm = ({ onSubmit }: MatchingFormProps) => {
         />
       </section>
 
-      <Button size='large' disabled={!isFormValid} onClick={handleSubmit}>
+      <Button size='large' disabled={!isFormValid} type='submit'>
         매칭하기
       </Button>
-    </div>
+    </form>
   );
 };
 
