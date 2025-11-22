@@ -4,6 +4,7 @@ const Home = () => {
   return (
     <>
       <AppBar variant='default' />
+      <AppBar variant='onboarding' />
     </>
   );
 };

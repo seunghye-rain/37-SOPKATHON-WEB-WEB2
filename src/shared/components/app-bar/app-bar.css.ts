@@ -7,33 +7,23 @@ export const containerStyle = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  padding: '0 2rem',
-  backgroundColor: '#ffffff',
+  padding: '0 1.6rem',
+  backgroundColor: '#ffffffff',
 });
 
 export const logoContainerStyle = style({
   display: 'flex',
   alignItems: 'center',
-  gap: '0.4rem',
 });
 
-export const logoIconStyle = style({
-  width: '2rem',
+export const logoImageStyle = style({
   height: '2rem',
-  color: '#2EBCB0',
-});
-
-export const logoTextStyle = style({
-  fontSize: '1.8rem',
-  fontWeight: 700,
-  color: '#000000',
-  fontFamily: 'sans-serif',
+  width: 'auto',
 });
 
 export const rightSectionStyle = style({
   display: 'flex',
   alignItems: 'center',
-  gap: '1.2rem',
 });
 
 export const iconButtonStyle = style({
@@ -43,18 +33,16 @@ export const iconButtonStyle = style({
   background: 'none',
   border: 'none',
   cursor: 'pointer',
-  padding: 0,
 });
 
-export const notificationIconStyle = style({
-  width: '2.4rem',
-  height: '2.4rem',
-  color: '#000000',
+export const iconStyle = style({
+  width: '4.4rem',
+  height: '4.4rem',
 });
 
 export const profileImageStyle = style({
-  width: '3.2rem',
-  height: '3.2rem',
+  width: '4.4rem',
+  height: '4.4rem',
   borderRadius: '50%',
   objectFit: 'cover',
 });
@@ -63,14 +51,7 @@ export const closeButtonStyle = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  background: 'none',
-  border: 'none',
   cursor: 'pointer',
-  padding: 0,
-});
-
-export const closeIconStyle = style({
-  width: '2.4rem',
-  height: '2.4rem',
-  color: '#000000',
+  width: '4.4rem',
+  height: '4.4rem',
 });
