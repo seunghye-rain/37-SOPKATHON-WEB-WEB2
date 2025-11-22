@@ -58,11 +58,11 @@ const MatchingComplete = () => {
               <div className={s.basicInfo}>
                 <div className={s.basicContainer}>
                   <LabelLang color='default'>상대 언어</LabelLang>
-                  <div className={s.basicFont}>프랑스</div>
+                  <div className={s.basicFont}>네덜란드어</div>
                 </div>
                 <div className={s.basicContainer}>
                   <LabelLang color='default'>회사원</LabelLang>
-                  <div className={s.basicFont}>회사원</div>
+                  <div className={s.basicFont}>직업</div>
                 </div>
               </div>
 
@@ -70,12 +70,12 @@ const MatchingComplete = () => {
                 <div className={s.InfoContainer}>
                   <p className={s.infoFont}>시간</p>
                   <div className={s.divider}></div>
-                  <p className={s.detailFont}>startAt</p>
+                  <p className={s.detailFont}>11:30 - 12:00</p>
                 </div>
                 <div className={s.InfoContainer}>
                   <p className={s.infoFont}>장소</p>
                   <div className={s.divider}></div>
-                  <p className={s.detailFont}>location</p>
+                  <p className={s.detailFont}>브뤼쉘시</p>
                 </div>
                 <div className={s.InfoContainer}>
                   <p className={s.infoFont}>뱃지</p>
