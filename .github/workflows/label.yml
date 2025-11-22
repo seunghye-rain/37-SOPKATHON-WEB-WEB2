@@ -1,63 +1,47 @@
-name: Auto Assign PR Author
+name: Labeler
 
 on:
-  pull_request:
-    types: [opened, ready_for_review]
   issues:
     types: [opened]
-
-permissions:
-  pull-requests: write
-  issues: write
+  pull_request_target:
+    types: [opened]
 
 jobs:
-  assign-creator:
+  labeler:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
     steps:
-      - name: Assign creator to Issue/PR
+      - name: Check Labels
+        id: labeler
+        uses: jimschubert/labeler-action@v1
+        with:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Add labels based on user
         uses: actions/github-script@v7
         with:
-          github-token: ${{ secrets.AUTO_ASSIGNEE_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const isPullRequest = context.eventName === 'pull_request';
-
-            const creator = isPullRequest
-              ? context.payload.pull_request.user.login
+            const author = context.payload.pull_request 
+              ? context.payload.pull_request.user.login 
               : context.payload.issue.user.login;
-
-            const issueNumber = context.issue.number;
-
-            if (!creator) {
-              console.log(`Creator not found for event: ${context.eventName}`);
-              return;
-            }
-
-            console.log(`Assigning ${creator} to issue/PR #${issueNumber}`);
-
-            await github.rest.issues.addAssignees({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: issueNumber,
-              assignees: [creator]
-            });
-
-            if (isPullRequest) {
-              const allMembers = [
-                'jin-evergreen',
-                'seunghye-rain',
-                'yooncandooit',
-                'Sohyunnnn'
-              ];
-              
-              const reviewers = allMembers.filter(member => member !== creator);
-              
-              if (reviewers.length > 0) {
-                await github.rest.pulls.requestReviewers({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  pull_number: issueNumber,
-                  reviewers: reviewers
-                });
-                console.log(`Requested review from: ${reviewers.join(', ')}`);
-              }
+            const userLabels = {
+              "jin-evergreen": "🌊 진석",
+              "seunghye-rain": "🌧️ 승혜",
+              "yooncandooit": "🫧 윤지",
+              "Sohyunnnn": "🍀 소현",
+            };
+            const labelToAdd = userLabels[author];
+            if (labelToAdd) {
+              github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.payload.pull_request 
+                  ? context.payload.pull_request.number 
+                  : context.payload.issue.number,
+                labels: [labelToAdd]
+              });
             }
