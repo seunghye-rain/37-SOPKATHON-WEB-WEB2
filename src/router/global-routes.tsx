@@ -31,6 +31,7 @@ export const globalRoutes = [
     path: ROUTES.MATCHING,
     element: <MatchingPage />,
   },
+  { path: ROUTES.MATCHING_COMPLETE, element: <MatchingComplete /> },
 ];
 
 export default globalRoutes;

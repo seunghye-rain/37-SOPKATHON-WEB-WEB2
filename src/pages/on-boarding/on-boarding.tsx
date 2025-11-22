@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
+import { useGetOnboardingMutation } from '@/features/onboarding/hooks/use-onboarding';
 import { ROUTES } from '@/router/constant/routes';
 import { OnBoardingLogoIcon } from '@/shared/assets/icons';
 import Button from '@/shared/components/button/button';
@@ -16,8 +17,16 @@ import {
 const OnBoardingPage = () => {
   const navigate = useNavigate();
 
+  const { mutate } = useGetOnboardingMutation();
+
   const handleLoadHistory = () => {
     navigate(ROUTES.MATCHING);
+    mutate(undefined, {
+      onSuccess: (response) => {
+        navigate('/matching', { state: { data: response } });
+      },
+      onError: (error) => alert(error.message),
+    });
   };
 
   const handleNewInfo = () => {
