@@ -1,13 +1,35 @@
-import { style } from '@vanilla-extract/css';
+import { keyframes, style } from '@vanilla-extract/css';
 
 import { themeVars } from '@/shared/styles/theme.css';
 
+const fadeIn = keyframes({
+  from: {
+    opacity: 0,
+  },
+  to: {
+    opacity: 1,
+  },
+});
+
+const scaleUp = keyframes({
+  from: {
+    opacity: 0,
+    transform: 'scale(0.9)',
+  },
+  to: {
+    opacity: 1,
+    transform: 'scale(1)',
+  },
+});
+
 export const wrapper = style({
-  position: 'absolute',
+  position: 'fixed',
   inset: 0,
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+  zIndex: themeVars.zIndex.modal,
+  animation: `${fadeIn} 0.2s ease-out`,
 });
 
 export const backdrop = style({
@@ -26,6 +48,7 @@ export const container = style({
   borderRadius: '8px',
   background: themeVars.color.white,
   zIndex: 1,
+  animation: `${scaleUp} 0.3s ease-out`,
 });
 
 export const content = style({
@@ -38,4 +61,5 @@ export const content = style({
 export const text = style({
   ...themeVars.fontStyles.body2_r_16,
   color: themeVars.color.black,
+  textAlign: 'center',
 });

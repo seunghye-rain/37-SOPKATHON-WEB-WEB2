@@ -2,12 +2,12 @@ import { useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { usePatchOnboardingMutation } from '@/features/onboarding/hooks/use-onboarding';
+import { ROUTES } from '@/router/constant/routes';
 import type { MatchingFormRequest } from '@/shared/apis/onboarding/onboarding';
 import MatchingForm from '@/widgets/matching-form/matching-form';
 import type { MatchingFormData } from '@/widgets/matching-form/types';
 
 import * as styles from './matching-page.css';
-import { ROUTES } from '@/router/constant/routes';
 
 const MatchingPage = () => {
   const navigate = useNavigate();
