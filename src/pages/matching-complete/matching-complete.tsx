@@ -91,8 +91,8 @@ const MatchingComplete = () => {
                   <div className={s.basicFont}>{nativeLanguage}</div>
                 </div>
                 <div className={s.basicContainer}>
-                  <LabelLang color='default'>직업</LabelLang>
-                  <div className={s.basicFont}>{job}</div>
+                  <LabelLang color='default'>회사원</LabelLang>
+                  <div className={s.basicFont}>회사원</div>
                 </div>
               </div>
 

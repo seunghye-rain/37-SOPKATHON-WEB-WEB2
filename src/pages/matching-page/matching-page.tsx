@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { usePatchOnboardingMutation } from '@/features/onboarding/hooks/use-onboarding';
+import { ROUTES } from '@/router/constant/routes';
 import type { MatchingFormRequest } from '@/shared/apis/onboarding/onboarding';
 import MatchingForm from '@/widgets/matching-form/matching-form';
 import type { MatchingFormData } from '@/widgets/matching-form/types';
@@ -35,7 +36,7 @@ const MatchingPage = () => {
 
       mutate(apiPayload, {
         onSuccess: () => {
-          navigate('/matching/waiting');
+          navigate(ROUTES.MATCHING_PROGRESS);
         },
       });
     },
