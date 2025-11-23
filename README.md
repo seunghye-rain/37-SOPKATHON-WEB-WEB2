@@ -182,7 +182,7 @@ git merge develop
 
 <br />
 
----
+
 
 ## ✨ Before & After
 
@@ -192,5 +192,12 @@ git merge develop
   </tr>
   <tr>
     <td><img width="2580" height="1720" alt="image" src="https://github.com/user-attachments/assets/0a57b71d-7234-429e-b9a7-ad3746d576b6" /></td>
+ <td>
+</td>
+  <tr>
+    <th>After</th>
+    <td>
+      <img width="2580" height="1720" alt="image" src="https://github.com/user-attachments/assets/0a57b71d-7234-429e-b9a7-ad3746d576b6" />
+    </td>
   </tr>
 </table>
