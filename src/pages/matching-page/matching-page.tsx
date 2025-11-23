@@ -31,6 +31,7 @@ const MatchingPage = () => {
         location: formData.region,
         timeSlot: formData.timeSlot,
         job: formData.job,
+        wishId: 0,
       };
 
       mutate(apiPayload, {
